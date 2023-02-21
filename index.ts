@@ -33,9 +33,9 @@ app.get("/api/post/getposts/:id", async (req: Request, res: Response) => {
 });
 
 // Create Post:
-app.post("api/post/createpost", (req: Request, res: Response) => {
+app.post("/api/post/createpost", async (req: Request, res: Response) => {
   const { title, description } = req.body;
-  const createdPost = PostModels.create({
+  const createdPost = await PostModels.create({
     title,
     description,
   });
